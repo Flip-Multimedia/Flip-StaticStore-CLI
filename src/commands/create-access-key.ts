@@ -152,6 +152,12 @@ export default class Bucket extends Command {
 
               console.log('Private key has been written.');
 
+              let configurationBackupFileWritten = false;
+              while(!configurationBackupFileWritten) {
+                configurationBackupFileWritten = await this.writeOutputConfigurationFile(data);
+              }
+
+              console.log('Done.');
 
             }
             else {
